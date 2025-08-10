@@ -49,70 +49,37 @@ public class SecurityConfig {
         return http.cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-
-                        // Cho phép truy cập các endpoint công khai
-                        .requestMatchers(CorsUtils::isPreFlightRequest)
-                        .permitAll() // Cho phép CORS pre-flight requests
+                        // Cho phép CORS pre-flight requests
+                        .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
+                        
+                        // Public endpoints - không cần authentication
                         .requestMatchers(
                                 "/api/login",
-                                "/api/google-login",
-                                "/api/facebook-login",
-                                "/api/register",
+                                "/api/register", 
                                 "/api/refresh-token",
-                                "/api/forgot-password",
-                                "/api/reset-password",
-                                "/api/verify",
-                                "/api/chat-with-guest"
-                                )
-                        .permitAll() // Các endpoint không cần xác thực
-                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**")
-                        .permitAll() // Cho phép truy cập Swagger
-                        .requestMatchers(
-                                "/api/promotions/available", "/api/payment/vnpay-return", "/api/payment/vnpay-ipn")
-                        .permitAll()
-                        .requestMatchers("/login/oauth2/code/google")
-                        .permitAll()
-                        .requestMatchers("/login/oauth2/code/facebook")
-                        .permitAll() // Cho phép OAuth2 redirect URI
-                        .requestMatchers(
-                                "/api/promotions/UpcomingOrAvailable",
-                                "/api/movie-blogs/coming-soon",
-                                "/api/movie-blogs/reviews",
-                                "/api/movie-blogs/now-showing",
-                                "/api/promotions/Available",
-                                "/api/promotions/getAvailableById/**",
-                                "/api/feedbacks/movie/{movieId}",
-                                "/api/users/{userId}/username")
-                        .permitAll()
-                        .requestMatchers(
-                                "/api/promotions/UpcomingOrAvailable",
-                                "/api/movie-blogs/coming-soon",
-                                "/api/movie-blogs/reviews",
-                                "/api/movie-blogs/now-showing",
-                                "/api/promotions/Available",
-                                "/api/promotions/getAvailableById/**")
-                        .permitAll()
-                        .requestMatchers(
-                                HttpMethod.GET,
-                                "/api/movies/comingSoon",
-                                "/api/movies/upcomingMovies",
-                                "/api/movies/topBookedMovies",
-                                "/api/movies/search",
-                                "/api/movies/showtimes",
-                                "/api/movies/detail/**",
-                                "/api/foodCombos/getAll")
-                        .permitAll() // Các endpoint GET không cần xác thực
-                        .requestMatchers("/api/showtime-details/date/**")
-                        .permitAll()
-                        .requestMatchers("/api/foodItems/getAll")
-                        .permitAll()
-                        .requestMatchers("/api/foodCombos/getAll")
-                        .permitAll()
-                        .requestMatchers("/api/booking/public/**").permitAll() // Cho phép truy cập public endpoint không cần xác thực
-
-                        // Tất cả các request khác cần xác thực
-                        .anyRequest()
-                        .authenticated())
+                                "/api/livestream/status",
+                                "/api/livestream/viewer/join",
+                                "/api/livestream/viewer/leave"
+                        ).permitAll()
+                        
+                        // WebSocket endpoints - allow all websocket related paths  
+                        .requestMatchers("/ws/**", "/ws**", "/info**", "/sockjs-node/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/ws/info**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/ws/**").permitAll()
+                        
+                        // Swagger endpoints  
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                        
+                        // Movie public endpoints
+                        .requestMatchers(HttpMethod.GET, 
+                                "/api/movies/**",
+                                "/api/foodCombos/getAll",
+                                "/api/foodItems/getAll"
+                        ).permitAll()
+                        
+                        // All other requests need authentication
+                        .anyRequest().authenticated()
+                )
                 .userDetailsService(authenticationService)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)

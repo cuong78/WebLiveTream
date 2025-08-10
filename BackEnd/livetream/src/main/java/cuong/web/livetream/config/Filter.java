@@ -47,8 +47,11 @@ public class Filter extends OncePerRequestFilter {
             "/api/refresh-token",
             "/api/reset-password",
             "/api/forgot-password",
-            "/api/verify"
-
+            "/api/verify",
+            "/ws/**",
+            "/ws**",
+            "/info**",
+            "/sockjs-node/**"
     );
 
     // kiểm tra xem request có thuộc danh sách publicAPI

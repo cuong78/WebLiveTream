@@ -21,6 +21,12 @@ public class UserMapper {
 
     // Convert User -> UserResponse (cho login)
     public static UserResponse toResponse(User user, String token, String refreshToken) {
-        return UserResponse.builder().token(token).refreshToken(refreshToken).build();
+        return UserResponse.builder()
+                .token(token)
+                .refreshToken(refreshToken)
+                .userId(String.valueOf(user.getUserId()))
+                .username(user.getUsername())
+                .roles(user.getRoles().stream().map(role -> role.getName()).collect(Collectors.toSet()))
+                .build();
     }
 }

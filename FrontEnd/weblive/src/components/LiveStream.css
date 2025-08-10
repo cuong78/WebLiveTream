@@ -1,0 +1,406 @@
+/* Video styles */
+.admin-video-container {
+  position: relative;
+  width: 100%;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.admin-video {
+  width: 100%;
+  height: auto;
+  min-height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.admin-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.camera-status {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.status-indicator.live {
+  color: #ff4444;
+  animation: pulse 2s infinite;
+}
+
+.status-indicator.offline {
+  color: #888;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.connection-status {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.connection-status.live {
+  background: rgba(40, 167, 69, 0.2);
+  color: #28a745;
+}
+
+.camera-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.camera-btn.start {
+  background: #28a745;
+  color: white;
+}
+
+.camera-btn.start:hover {
+  background: #218838;
+}
+
+.camera-btn.stop {
+  background: #dc3545;
+  color: white;
+}
+
+.camera-btn.stop:hover {
+  background: #c82333;
+}
+
+.viewer-video-container {
+  width: 100%;
+}
+
+.stream-container {
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  margin-bottom: 20px;
+}
+
+.stream-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #fff;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #333;
+  border-top: 4px solid #ff6b35;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.stream-offline {
+  padding: 40px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.offline-content {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.offline-icon {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.offline-content h2 {
+  color: #ff6b35;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.offline-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.offline-info {
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid #ff6b35;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.offline-info p {
+  margin: 10px 0;
+  color: #fff;
+  font-size: 16px;
+}
+
+.stream-header {
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  padding: 20px;
+  border-bottom: 2px solid #ff6b35;
+}
+
+.stream-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.stream-title h2 {
+  color: #fff;
+  margin: 0;
+  font-size: 22px;
+}
+
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #dc2626;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.stream-info {
+  display: flex;
+  gap: 20px;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.viewer-count,
+.start-time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.stream-player {
+  position: relative;
+}
+
+.video-placeholder {
+  background: #000;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-bottom: 1px solid #333;
+}
+
+.video-content {
+  text-align: center;
+}
+
+.play-icon {
+  font-size: 60px;
+  margin-bottom: 15px;
+}
+
+.video-content p {
+  margin: 8px 0;
+  font-size: 18px;
+}
+
+.stream-description {
+  color: #ccc !important;
+  font-size: 14px !important;
+}
+
+.tech-notice {
+  background: rgba(33, 150, 243, 0.1);
+  border: 1px solid #2196f3;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 15px;
+  text-align: left;
+}
+
+.tech-notice p {
+  margin: 0 0 10px 0;
+  color: #2196f3;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.tech-notice ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: none;
+}
+
+.tech-notice li {
+  margin: 8px 0;
+  color: #ccc;
+  font-size: 13px;
+  position: relative;
+}
+
+.tech-notice li::before {
+  content: attr(data-icon);
+  margin-right: 8px;
+}
+
+.stream-controls {
+  background: #2d2d2d;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.server-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+}
+
+.server-selector span {
+  font-weight: 500;
+}
+
+.server-btn {
+  background: #4a4a4a;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.server-btn:hover {
+  background: #ff6b35;
+}
+
+.server-btn.active {
+  background: #ff6b35;
+}
+
+.reload-btn {
+  background: #ff6b35;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.reload-btn:hover {
+  background: #e55a2b;
+  transform: translateY(-1px);
+}
+
+.stream-notice {
+  background: #dc2626;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+}
+
+.stream-notice h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .stream-header {
+    padding: 15px;
+  }
+
+  .stream-title {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .stream-title h2 {
+    font-size: 18px;
+  }
+
+  .stream-info {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .stream-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .server-selector {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .reload-btn {
+    width: 100%;
+  }
+
+  .offline-content h2 {
+    font-size: 20px;
+  }
+
+  .offline-icon {
+    font-size: 40px;
+  }
+}

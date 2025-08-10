@@ -1,0 +1,590 @@
+.admin-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  color: #fff;
+  padding: 20px;
+}
+
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.admin-header {
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 20px;
+  border: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-title h1 {
+  color: #ff6b35;
+  margin: 0 0 5px 0;
+  font-size: 24px;
+}
+
+.admin-title p {
+  color: #ccc;
+  margin: 0;
+  font-size: 16px;
+}
+
+.admin-user {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.admin-user span {
+  color: #fff;
+  font-size: 14px;
+}
+
+.logout-btn {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #b91c1c;
+}
+
+.admin-nav {
+  background: #2d2d2d;
+  border-radius: 10px;
+  padding: 15px 25px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-link {
+  color: #ff6b35;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.refresh-btn {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.refresh-btn:hover {
+  background: #15803d;
+}
+
+.alert {
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.alert-error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid #ef4444;
+  color: #ef4444;
+}
+
+.alert-success {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid #22c55e;
+  color: #22c55e;
+}
+
+.status-section,
+.control-section,
+.instructions-section,
+.contact-section {
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 20px;
+  border: 1px solid #333;
+}
+
+.status-section h2,
+.control-section h2,
+.instructions-section h2,
+.contact-section h2 {
+  color: #ff6b35;
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  border-bottom: 2px solid #ff6b35;
+  padding-bottom: 10px;
+}
+
+.status-card,
+.control-card,
+.instructions-card,
+.contact-card {
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #333;
+}
+
+.status-info {
+  display: grid;
+  gap: 15px;
+}
+
+.status-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #333;
+}
+
+.status-item:last-child {
+  border-bottom: none;
+}
+
+.label {
+  color: #ccc;
+  font-weight: 500;
+}
+
+.status.live {
+  color: #ef4444;
+  font-weight: bold;
+}
+
+.status.offline {
+  color: #6b7280;
+  font-weight: bold;
+}
+
+.viewer-count {
+  color: #ff6b35;
+  font-weight: bold;
+}
+
+.control-card h3 {
+  color: #fff;
+  margin: 0 0 20px 0;
+  font-size: 18px;
+}
+
+.stream-form {
+  display: grid;
+  gap: 20px;
+}
+
+.form-group {
+  display: grid;
+  gap: 8px;
+}
+
+.form-group label {
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid #666;
+  border-radius: 8px;
+  background: #0f0f0f;
+  color: #fff;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #ff6b35;
+}
+
+.form-group input:disabled,
+.form-group textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.control-btn {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.start-btn {
+  background: #16a34a;
+  color: white;
+}
+
+.start-btn:hover:not(:disabled) {
+  background: #15803d;
+}
+
+.stop-btn {
+  background: #dc2626;
+  color: white;
+}
+
+.stop-btn:hover:not(:disabled) {
+  background: #b91c1c;
+}
+
+.pause-btn {
+  background: #ea580c;
+  color: white;
+}
+
+.pause-btn:hover:not(:disabled) {
+  background: #c2410c;
+}
+
+.control-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.active-controls {
+  display: grid;
+  gap: 15px;
+}
+
+.instruction-item {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #333;
+}
+
+.instruction-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.instruction-item h4 {
+  color: #ff6b35;
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
+
+.instruction-item p {
+  margin: 5px 0;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.contact-card p {
+  margin: 10px 0;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+.contact-card strong {
+  color: #fff;
+}
+
+.contact-card a {
+  color: #ff6b35;
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .admin-page {
+    padding: 15px;
+  }
+
+  .admin-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .admin-nav {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .admin-title h1 {
+    font-size: 20px;
+  }
+
+  .status-item {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .active-controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .status-section h2,
+  .control-section h2,
+  .instructions-section h2,
+  .contact-section h2 {
+    font-size: 18px;
+  }
+
+  .status-card,
+  .control-card,
+  .instructions-card,
+  .contact-card {
+    padding: 15px;
+  }
+
+  .admin-header,
+  .admin-nav,
+  .status-section,
+  .control-section,
+  .instructions-section,
+  .contact-section {
+    padding: 20px;
+  }
+}
+
+/* Camera section styles */
+.camera-section {
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 20px;
+  border: 1px solid #333;
+}
+
+.camera-section h2 {
+  color: #ff6b35;
+  margin: 0 0 20px 0;
+  font-size: 20px;
+}
+
+.camera-controls {
+  margin-bottom: 20px;
+}
+
+.camera-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.camera-btn.start {
+  background: #28a745;
+  color: white;
+}
+
+.camera-btn.start:hover {
+  background: #218838;
+  transform: translateY(-2px);
+}
+
+.camera-btn.stop {
+  background: #dc3545;
+  color: white;
+}
+
+.camera-btn.stop:hover {
+  background: #c82333;
+  transform: translateY(-2px);
+}
+
+.camera-preview {
+  text-align: center;
+}
+
+.camera-status {
+  margin-bottom: 15px;
+}
+
+.status-indicator {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.status-indicator.active {
+  background: #28a745;
+  color: white;
+  animation: pulse 2s infinite;
+}
+
+.status-indicator.inactive {
+  background: #dc3545;
+  color: white;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.active-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.camera-btn.check {
+  background: #17a2b8;
+  color: white;
+}
+
+.camera-btn.check:hover {
+  background: #138496;
+}
+
+.camera-info {
+  margin-top: 15px;
+  padding: 10px;
+  background: rgba(40, 167, 69, 0.1);
+  border-radius: 5px;
+  border-left: 4px solid #28a745;
+}
+
+.camera-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #28a745;
+}
+
+/* Admin Camera Section */
+.admin-camera-section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #333;
+}
+
+.camera-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.camera-status .status-indicator {
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.camera-status .status-indicator.live {
+  background: rgba(220, 38, 38, 0.2);
+  color: #ff4444;
+  border: 1px solid #ff4444;
+  animation: pulse 2s infinite;
+}
+
+.camera-status .status-indicator.offline {
+  background: rgba(107, 114, 128, 0.2);
+  color: #6b7280;
+  border: 1px solid #6b7280;
+}
+
+.camera-preview {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.admin-preview-video {
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  border: 2px solid #28a745;
+  border-radius: 10px;
+  background: #000;
+}
+
+.camera-controls {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.camera-btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.camera-btn.start {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+}
+
+.camera-btn.start:hover {
+  background: linear-gradient(135deg, #218838, #1ea37a);
+  transform: translateY(-2px);
+}
+
+.camera-btn.stop {
+  background: linear-gradient(135deg, #dc3545, #fd7e14);
+  color: white;
+}
+
+.camera-btn.stop:hover {
+  background: linear-gradient(135deg, #c82333, #e8680a);
+  transform: translateY(-2px);
+}
+
+.connection-status {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #333;
+}
+
+.connection-status.live {
+  background: rgba(40, 167, 69, 0.2);
+  color: #28a745;
+  border-color: #28a745;
+}
