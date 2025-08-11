@@ -26,7 +26,7 @@ export const useWebSocket = () => {
       setClient(stompClient);
 
       // Subscribe to topics AFTER connection is established
-      stompClient.subscribe('/topic/chat', (message) => {
+      stompClient.subscribe('/topic/public', (message) => {
         const chatMessage = JSON.parse(message.body);
         setMessages(prev => [...prev, chatMessage]);
       });
@@ -71,7 +71,7 @@ export const useWebSocket = () => {
     if (client && connected) {
       client.publish({
         destination: '/app/chat.sendMessage',
-        body: JSON.stringify({ sender: displayName, content })
+        body: JSON.stringify({ displayName: displayName, content })
       });
       return true;
     }
@@ -82,7 +82,7 @@ export const useWebSocket = () => {
     if (client && connected) {
       client.publish({
         destination: '/app/chat.addUser',
-        body: JSON.stringify({ sender: displayName, type: 'JOIN' })
+        body: JSON.stringify({ displayName: displayName, type: 'JOIN' })
       });
       return true;
     }
