@@ -59,7 +59,8 @@ public class SecurityConfig {
                                 "/api/refresh-token",
                                 "/api/livestream/status",
                                 "/api/livestream/viewer/join",
-                                "/api/livestream/viewer/leave"
+                                "/api/livestream/viewer/leave",
+                                "/api/chat/history"
                         ).permitAll()
                         
                         // WebSocket endpoints - allow all websocket related paths  

@@ -51,7 +51,11 @@ public class Filter extends OncePerRequestFilter {
             "/ws/**",
             "/ws**",
             "/info**",
-            "/sockjs-node/**"
+            "/sockjs-node/**",
+            "/api/chat/history",
+            "/api/livestream/status",
+            "/api/livestream/viewer/join",
+            "/api/livestream/viewer/leave"
     );
 
     // kiểm tra xem request có thuộc danh sách publicAPI
