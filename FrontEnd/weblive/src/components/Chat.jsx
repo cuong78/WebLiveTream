@@ -8,9 +8,12 @@ const Chat = () => {
   const [messageContent, setMessageContent] = useState('');
   const [hasJoined, setHasJoined] = useState(false);
   const messagesEndRef = useRef(null);
+  const messagesContainerRef = useRef(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+    }
   };
 
   useEffect(() => {
@@ -128,7 +131,7 @@ const Chat = () => {
       </div>
 
       <div className="chat-body">
-        <div className="messages-container">
+        <div className="messages-container" ref={messagesContainerRef}>
           {messages.length === 0 ? (
             <div className="no-messages">
               <p>Chưa có tin nhắn nào. Hãy là người đầu tiên!</p>

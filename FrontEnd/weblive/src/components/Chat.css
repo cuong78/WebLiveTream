@@ -4,8 +4,10 @@
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   height: 600px;
+  max-height: 600px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .chat-header {
@@ -158,8 +160,11 @@
 .messages-container {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 20px;
   background: #0f0f0f;
+  height: 0; /* Force flex item to respect parent height */
+  scroll-behavior: smooth;
 }
 
 .no-messages {

@@ -48,4 +48,10 @@ export const liveStreamAPI = {
     api.post('/livestream/viewer/leave'),
 };
 
+// Chat API
+export const chatAPI = {
+  getHistory: () => 
+    api.get('/chat/history'),
+};
+
 export default api;
