@@ -71,7 +71,7 @@ export const useWebSocket = () => {
   useEffect(() => {
     // Create STOMP client
     const stompClient = new Client({
-      webSocketFactory: () => new SockJS('https://livestreambe.zeabur.app/ws'),
+      webSocketFactory: () => new SockJS('http://localhost:8080/ws'),
       debug: (str) => console.log('STOMP:', str),
       reconnectDelay: 5000,
       heartbeatIncoming: 4000,

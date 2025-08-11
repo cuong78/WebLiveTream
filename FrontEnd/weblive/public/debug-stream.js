@@ -2,7 +2,7 @@
 console.log('🔍 Debug Stream Status');
 
 // Check API endpoint directly
-fetch('https://livestreambe.zeabur.app/api/livestream/status')
+fetch('http://localhost:8080/api/livestream/status')
   .then(response => response.json())
   .then(data => {
     console.log('📡 Stream Status from API:', data);

@@ -22,7 +22,7 @@ class WebRTCService {
   // Initialize WebRTC service
   async initialize() {
     try {
-      const socket = new SockJS(`http://${window.location.hostname}:8080/ws`);
+      const socket = new SockJS(`http://localhost:8080/ws`);
       this.stompClient = new Client({
         webSocketFactory: () => socket,
         reconnectDelay: 5000,

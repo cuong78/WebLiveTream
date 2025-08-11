@@ -4,7 +4,7 @@ window.testStreamStatus = async () => {
     console.log('🔍 Testing stream status...');
     
     // 1. Check API status
-    const response = await fetch('https://livestreambe.zeabur.app/api/livestream/status');
+    const response = await fetch('http://localhost:8080/api/livestream/status');
     const data = await response.json();
     console.log('📡 API Response:', data);
     
@@ -18,7 +18,7 @@ window.testStreamStatus = async () => {
     }
     
     // 3. Try to join as viewer
-    const joinResponse = await fetch('https://livestreambe.zeabur.app/api/livestream/viewer/join', {
+    const joinResponse = await fetch('http://localhost:8080/api/livestream/viewer/join', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
     });
