@@ -41,16 +41,18 @@ const LiveStream = ({ onViewerChange }) => {
 
   // Auto camera management for admin
   useEffect(() => {
-    if (isAdmin() && streamStatus?.isLive && !isStreaming) {
+    const isLiveStatus = streamStatus?.isLive || streamStatus?.live;
+    if (isAdmin() && isLiveStatus && !isStreaming) {
       startCamera();
-    } else if (isAdmin() && !streamStatus?.isLive && isStreaming) {
+    } else if (isAdmin() && !isLiveStatus && isStreaming) {
       stopCamera();
     }
-  }, [streamStatus?.isLive, isAdmin, isStreaming, startCamera, stopCamera]);
+  }, [streamStatus?.isLive, streamStatus?.live, isAdmin, isStreaming, startCamera, stopCamera]);
 
   // Join/leave stream handlers
   const handleJoinStream = useCallback(async () => {
-    if (!hasJoined && streamStatus?.isLive) {
+    const isLiveStatus = streamStatus?.isLive || streamStatus?.live;
+    if (!hasJoined && isLiveStatus) {
       try {
         await liveStreamAPI.joinAsViewer();
         setHasJoined(true);
@@ -59,7 +61,7 @@ const LiveStream = ({ onViewerChange }) => {
         console.error('Error joining stream:', error);
       }
     }
-  }, [hasJoined, streamStatus?.isLive]);
+  }, [hasJoined, streamStatus?.isLive, streamStatus?.live]);
 
   const handleLeaveStream = useCallback(async () => {
     if (hasJoined) {
@@ -75,12 +77,13 @@ const LiveStream = ({ onViewerChange }) => {
 
   // Auto join/leave stream based on status
   useEffect(() => {
-    if (streamStatus?.isLive && !hasJoined && !isAdmin()) {
+    const isLiveStatus = streamStatus?.isLive || streamStatus?.live;
+    if (isLiveStatus && !hasJoined && !isAdmin()) {
       handleJoinStream();
-    } else if (!streamStatus?.isLive && hasJoined) {
+    } else if (!isLiveStatus && hasJoined) {
       handleLeaveStream();
     }
-  }, [streamStatus?.isLive, hasJoined, isAdmin, handleJoinStream, handleLeaveStream]);
+  }, [streamStatus?.isLive, streamStatus?.live, hasJoined, isAdmin, handleJoinStream, handleLeaveStream]);
 
   // Cleanup on component unmount
   useEffect(() => {
@@ -133,7 +136,7 @@ const LiveStream = ({ onViewerChange }) => {
       )}
 
       {/* Admin Camera Preview */}
-      {isAdmin() && streamStatus?.isLive && (
+      {isAdmin() && (streamStatus?.isLive || streamStatus?.live) && (
         <div className="admin-camera-section">
           <h3>📹 Camera Admin</h3>
           <div className="camera-container">
@@ -175,7 +178,7 @@ const LiveStream = ({ onViewerChange }) => {
       {/* Video Stream for Viewers */}
       <div className="video-section">
         <MockVideoStream 
-          isLive={streamStatus?.isLive || false}
+          isLive={(streamStatus?.isLive || streamStatus?.live) || false}
           streamTitle={streamStatus?.streamTitle}
           streamDescription={streamStatus?.streamDescription}
           startTime={streamStatus?.startTime}
@@ -183,7 +186,7 @@ const LiveStream = ({ onViewerChange }) => {
       </div>
 
       {/* Stream Stats */}
-      {streamStatus?.isLive && (
+      {(streamStatus?.isLive || streamStatus?.live) && (
         <div className="stream-stats">
           <div className="stat-item">
             <span className="label">👥 Người xem:</span>

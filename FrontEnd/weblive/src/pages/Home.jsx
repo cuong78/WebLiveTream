@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
-import LiveStream from '../components/LiveStream';
+import RealLiveStream from '../components/RealLiveStream';
 import Chat from '../components/Chat';
 import './Home.css';
 
@@ -16,7 +16,7 @@ const Home = () => {
           <div className="content-grid">
             {/* Live Stream Section */}
             <div className="stream-section">
-              <LiveStream onViewerChange={setViewerCount} />
+              <RealLiveStream onViewerChange={setViewerCount} />
             </div>
 
             {/* Chat Section */}

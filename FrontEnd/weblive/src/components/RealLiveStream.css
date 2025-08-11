@@ -1,0 +1,204 @@
+/* Real Video Streaming Styles */
+.real-video-container {
+  margin-bottom: 20px;
+}
+
+.real-video-container h3 {
+  color: #e74c3c;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
+}
+
+.remote-video {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  background-color: #000;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 2px solid #e74c3c;
+}
+
+.video-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.video-loading .loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #e74c3c;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+.video-loading p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.video-loading small {
+  color: #bdc3c7;
+  font-size: 0.9rem;
+}
+
+.admin-camera-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, #8e44ad, #9b59b6);
+  border-radius: 12px;
+  color: white;
+}
+
+.admin-camera-section h3 {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.camera-container {
+  margin-bottom: 15px;
+}
+
+.admin-camera-preview {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.camera-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 2px dashed #fff;
+}
+
+.camera-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.camera-controls .btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.camera-controls .btn.primary {
+  background: #27ae60;
+  color: white;
+}
+
+.camera-controls .btn.primary:hover {
+  background: #229954;
+  transform: translateY(-2px);
+}
+
+.camera-controls .btn.secondary {
+  background: #e74c3c;
+  color: white;
+}
+
+.camera-controls .btn.secondary:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+}
+
+.camera-controls .btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.stream-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(52, 73, 94, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(52, 73, 94, 0.2);
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+}
+
+.stat-item .label {
+  font-weight: 600;
+  color: #7f8c8d;
+}
+
+.stat-item .value {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.stat-item .value.connected {
+  color: #27ae60;
+}
+
+.stat-item .value.disconnected {
+  color: #e74c3c;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .camera-controls {
+    flex-direction: column;
+  }
+  
+  .camera-controls .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .stream-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .real-video-container h3 {
+    font-size: 1.2rem;
+  }
+  
+  .video-loading {
+    min-height: 300px;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
