@@ -47,7 +47,12 @@ public class Filter extends OncePerRequestFilter {
             "/api/refresh-token",
             "/api/reset-password",
             "/api/forgot-password",
-            "/api/verify"
+            "/api/verify",
+            "/ws/**",
+            "/ws**",
+            "/info**",
+            "/sockjs-node/**",
+            "/api/chat/history"
 
     );
 

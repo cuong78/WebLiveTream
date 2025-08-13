@@ -1,0 +1,137 @@
+:root {
+  --bg: #121418;
+  --bg-soft: #181b20;
+  --bg-card: #1e2228;
+  --text: #e8ecf3;
+  --text-muted: #b7bcca;
+  --primary: #f5c542;
+  --danger: #e21b2e;
+  --success: #1ecb74;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #0e1013;
+  border-bottom: 1px solid #22262d;
+}
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  color: var(--primary);
+}
+.brand img { height: 28px; width: 28px; }
+
+.card {
+  background: var(--bg-soft);
+  border: 1px solid #242a33;
+  border-radius: 12px;
+  padding: 14px;
+}
+.title {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.pill-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.pill {
+  background: #0f1115;
+  border: 1px solid #2a2f38;
+  padding: 8px 12px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+.dot-live {
+  width: 10px; height: 10px; border-radius: 50%; background: #ff2d2d;
+}
+
+.video-wrapper { margin-top: 12px; border: 1px solid #343a45; border-radius: 8px; overflow: hidden; }
+.thumb { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; background: #111; }
+.play-overlay { position: relative; margin-top: -54%; height: 0; }
+
+.cta-row { display: flex; gap: 10px; margin-top: 12px; }
+.btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 800;
+}
+.btn-danger { background: #c91526; color: #fff; }
+.btn-primary { background: var(--primary); color: #111; }
+
+.section-title { margin: 18px 0 8px; font-weight: 900; color: var(--primary); }
+
+.info-card { background: var(--bg-soft); border: 1px solid #2a2f38; border-radius: 12px; padding: 14px; }
+.info-item { margin: 6px 0; color: var(--text-muted); }
+.copy-btn { background: var(--primary); color: #111; padding: 10px 12px; border: 0; border-radius: 10px; font-weight: 800; width: 100%; margin-top: 12px; }
+
+.rule { display: flex; gap: 10px; margin: 10px 0; }
+.rule .emoji { width: 22px; }
+
+.video-grid { display: grid; gap: 12px; }
+.video-card { background: var(--bg-soft); border: 1px solid #2a2f38; border-radius: 12px; overflow: hidden; }
+.video-card img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; }
+.video-card .meta { padding: 12px; }
+
+.footer { margin: 20px 0 40px; color: var(--text-muted); text-align: center; font-size: 13px; }
+
+/* Notice bar */
+.notice { background:#1b1e23; border-top:1px solid #252a33; border-bottom:1px solid #252a33; padding:8px 12px; text-align:center; margin:12px 0; font-weight:800; color:#fff; }
+.notice .icon { margin-right:6px; }
+
+/* Chat */
+.chat { margin-top: 12px; }
+.input { width: 100%; background:#101318; color:#dfe5f2; border:1px solid #2a2f38; border-radius:10px; padding:12px; margin:8px 0; }
+.chat-list { margin-top: 8px; }
+.msg { display:flex; gap:10px; align-items:flex-start; background:#151922; border:1px solid #222835; border-radius:10px; padding:10px; margin-bottom:8px; }
+.avatar { width:32px; height:32px; border-radius:50%; background:#2b3140; }
+.msg .name { color:#a3ff57; font-weight:700; margin-right:6px; }
+.msg .time { color:#7f899c; font-size:12px; margin-left:auto; }
+
+/* Floating action buttons */
+.fab-group { position: fixed; right: 12px; bottom: 90px; display: flex; flex-direction: column; gap: 10px; z-index: 200; }
+.fab { width: 54px; height: 54px; border-radius: 50%; display:flex; align-items:center; justify-content:center; font-weight:800; box-shadow: 0 6px 18px rgba(0,0,0,.35); }
+.fab.phone { background:#f5c542; color:#111; }
+.fab.zalo { background:#1f6fff; color:#fff; }
+.fab.vip { background:#b24bff; color:#fff; font-size:12px; }
